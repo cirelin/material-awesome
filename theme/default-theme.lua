@@ -23,7 +23,7 @@ local awesome_overrides =
   theme.dir = os.getenv('HOME') .. '/.config/awesome/theme'
 
   theme.icons = theme.dir .. '/icons/'
-  theme.wallpaper = theme.dir .. '/wallpapers/DarkCyan.png'
+  theme.wallpaper = theme.dir .. '/wallpapers/1920x1080.svg'
   --theme.wallpaper = '#e0e0e0'
   theme.font = 'Roboto medium 10'
   theme.title_font = 'Roboto medium 14'
@@ -38,16 +38,15 @@ local awesome_overrides =
   theme.bg_focus = '#5a5a5a'
   theme.bg_urgent = '#3F3F3F'
   theme.bg_systray = theme.background.hue_800
+  theme.systray_icon_spacing = 0
 
   -- Borders
-
   theme.border_width = dpi(2)
   theme.border_normal = theme.background.hue_800
   theme.border_focus = theme.primary.hue_300
   theme.border_marked = '#CC9393'
 
   -- Menu
-
   theme.menu_height = dpi(16)
   theme.menu_width = dpi(160)
 
@@ -60,12 +59,10 @@ local awesome_overrides =
   end
 
   -- Layout
-
   theme.layout_max = theme.icons .. 'layouts/arrow-expand-all.png'
   theme.layout_tile = theme.icons .. 'layouts/view-quilt.png'
 
   -- Taglist
-
   theme.taglist_bg_empty = theme.background.hue_800
   theme.taglist_bg_occupied = theme.background.hue_800
   theme.taglist_bg_urgent =
@@ -82,7 +79,6 @@ local awesome_overrides =
           ':0.08,' .. theme.primary.hue_500 .. ':0.08,' .. theme.background.hue_800 .. ':1,' .. theme.background.hue_800
 
   -- Tasklist
-
   theme.tasklist_font = 'Roboto medium 11'
   theme.tasklist_bg_normal = theme.background.hue_800
   theme.tasklist_bg_focus =
@@ -98,8 +94,10 @@ local awesome_overrides =
 
   theme.icon_theme = 'Papirus-Dark'
 
+  theme.calendar_placement = 'top_right'
+
   --Client
-  theme.border_width = dpi(2)
+  theme.border_width = dpi(3)
   theme.border_focus = theme.primary.hue_500
   theme.border_normal = theme.background.hue_800
 end
