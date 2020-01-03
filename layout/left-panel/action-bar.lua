@@ -26,7 +26,7 @@ return function(screen, panel, action_bar_width)
       menu_icon,
       widget = clickable_container
     },
-    bg = beautiful.primary.hue_500,
+    bg = beautiful.primary,
     widget = wibox.container.background
   }
 

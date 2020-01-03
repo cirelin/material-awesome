@@ -10,40 +10,36 @@ theme.font = 'Roboto medium 10'
 -- Colors Pallets
 
 -- Primary
-theme.primary = mat_colors.deep_orange
+theme.primary = mat_colors.deep_orange.hue_500
 
 -- Accent
-theme.accent = mat_colors.pink
+theme.accent = mat_colors.pink.hue_500
 
 -- Background
-theme.background = mat_colors.grey
+theme.background = mat_colors.grey.hue_800
 
 local awesome_overrides =
   function(theme)
-  theme.dir = os.getenv('HOME') .. '/.config/awesome/theme'
-
-  theme.icons = theme.dir .. '/icons/'
-  theme.wallpaper = theme.dir .. '/wallpapers/1920x1080.svg'
+  theme.icons = theme_dir .. '/icons/'
   --theme.wallpaper = '#e0e0e0'
   theme.font = 'Roboto medium 10'
   theme.title_font = 'Roboto medium 14'
 
-  theme.fg_normal = '#ffffffde'
+  theme.fg_normal = '#ffffff'
 
   theme.fg_focus = '#e4e4e4'
   theme.fg_urgent = '#CC9393'
   theme.bat_fg_critical = '#232323'
 
-  theme.bg_normal = theme.background.hue_800
+  theme.bg_normal = theme.background
   theme.bg_focus = '#5a5a5a'
   theme.bg_urgent = '#3F3F3F'
-  theme.bg_systray = theme.background.hue_800
-  theme.systray_icon_spacing = 0
+  theme.bg_systray = theme.background
 
   -- Borders
-  theme.border_width = dpi(2)
-  theme.border_normal = theme.background.hue_800
-  theme.border_focus = theme.primary.hue_300
+  theme.border_width = dpi(3)
+  theme.border_normal = theme.background_alt
+  theme.border_focus = theme.primary
   theme.border_marked = '#CC9393'
 
   -- Menu
@@ -63,43 +59,35 @@ local awesome_overrides =
   theme.layout_tile = theme.icons .. 'layouts/view-quilt.png'
 
   -- Taglist
-  theme.taglist_bg_empty = theme.background.hue_800
-  theme.taglist_bg_occupied = theme.background.hue_800
+  theme.taglist_bg_empty = theme.background
+  theme.taglist_bg_occupied = theme.background
   theme.taglist_bg_urgent =
     'linear:0,0:' ..
     dpi(48) ..
       ',0:0,' ..
-        theme.accent.hue_500 ..
-          ':0.08,' .. theme.accent.hue_500 .. ':0.08,' .. theme.background.hue_800 .. ':1,' .. theme.background.hue_800
+        theme.accent ..
+          ':0.08,' .. theme.accent .. ':0.08,' .. theme.background .. ':1,' .. theme.background
   theme.taglist_bg_focus =
     'linear:0,0:' ..
     dpi(48) ..
       ',0:0,' ..
-        theme.primary.hue_500 ..
-          ':0.08,' .. theme.primary.hue_500 .. ':0.08,' .. theme.background.hue_800 .. ':1,' .. theme.background.hue_800
+        theme.primary ..
+          ':0.08,' .. theme.primary .. ':0.08,' .. theme.background .. ':1,' .. theme.background
 
   -- Tasklist
   theme.tasklist_font = 'Roboto medium 11'
-  theme.tasklist_bg_normal = theme.background.hue_800
+  theme.tasklist_bg_normal = theme.background
   theme.tasklist_bg_focus =
     'linear:0,0:0,' ..
     dpi(48) ..
       ':0,' ..
-        theme.background.hue_800 ..
-          ':0.95,' .. theme.background.hue_800 .. ':0.95,' .. theme.fg_normal .. ':1,' .. theme.fg_normal
-  theme.tasklist_bg_urgent = theme.primary.hue_800
+        theme.background ..
+          ':0.92,' .. theme.background .. ':0.92,' .. theme.primary .. ':1,' .. theme.primary
+  theme.tasklist_bg_urgent = theme.primary
   theme.tasklist_fg_focus = '#DDDDDD'
   theme.tasklist_fg_urgent = theme.fg_normal
   theme.tasklist_fg_normal = '#AAAAAA'
 
-  theme.icon_theme = 'Papirus-Dark'
-
-  theme.calendar_placement = 'top_right'
-
-  --Client
-  theme.border_width = dpi(3)
-  theme.border_focus = theme.primary.hue_500
-  theme.border_normal = theme.background.hue_800
 end
 return {
   theme = theme,

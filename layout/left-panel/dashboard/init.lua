@@ -71,7 +71,7 @@ return function(_, panel)
       layout = wibox.layout.fixed.vertical,
       {
         search_button,
-        bg = beautiful.background.hue_800,
+        bg = beautiful.background_alt,
         widget = wibox.container.background
       },
       wibox.widget {
@@ -88,7 +88,7 @@ return function(_, panel)
       layout = wibox.layout.fixed.vertical,
       {
         exit_button,
-        bg = beautiful.background.hue_800,
+        bg = beautiful.background_alt,
         widget = wibox.container.background
       }
     }
