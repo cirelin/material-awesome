@@ -1,5 +1,6 @@
 local awful = require('awful')
 local gears = require('gears')
+local beautiful = require('beautiful')
 local client_keys = require('configuration.client.keys')
 local client_buttons = require('configuration.client.buttons')
 
@@ -36,12 +37,13 @@ awful.rules.rules = {
   },
   -- Titlebars
   {
-    rule_any = {type = {'dialog'}, class = {'Wicd-client.py', 'calendar.google.com'}},
+    rule_any = {type = {'dialog'}, class = {'Nm-connection-editor', 'Ibus-setup'}},
     properties = {
       placement = awful.placement.centered,
       ontop = true,
       floating = true,
       drawBackdrop = true,
+      border_width = beautiful.border_width,
       shape = function()
         return function(cr, w, h)
           gears.shape.rounded_rect(cr, w, h, 8)
