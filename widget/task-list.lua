@@ -4,6 +4,20 @@ local dpi = require('beautiful').xresources.apply_dpi
 local capi = {button = _G.button}
 local gears = require('gears')
 local clickable_container = require('widget.material.clickable-container')
+
+-- Used to unescape HTML entities, because set_markup_silently fails sometimes
+-- https://stackoverflow.com/questions/14899734/unescape-numeric-xml-entities-with-lua
+local entityMap  = {["lt"]="<",["gt"]=">",["amp"]="&",["quot"]='"',["apos"]="'"}
+local entitySwap = function(orig,n,s)
+  return (n=='' and entityMap[s])
+         or (n=="#" and tonumber(s)) and string.char(s)
+         or (n=="#x" and tonumber(s,16)) and string.char(tonumber(s,16))
+         or orig
+end
+function unescape(str)
+  return (string.gsub( str, '(&(#?x?)([%d%a]+);)', entitySwap ))
+end
+
 --- Common method to create buttons.
 -- @tab buttons
 -- @param object
@@ -122,17 +136,15 @@ local function list_update(w, buttons, label, data, objects)
       tbm:set_margins(0)
     else
       -- truncate when title is too long
-      local textOnly = text:match('>(.-)<')
+      local textOnly = unescape(text:match('>(.-)<'))
       if (textOnly:len() > 24) then
-        text = text:gsub('>(.-)<', '>' .. textOnly:sub(1, 21) .. '...<')
         tt:set_text(textOnly)
         tt:add_to_object(tb)
+        textOnly = textOnly:sub(1, 21) .. '...'
       else
         tt:remove_from_object(tb)
       end
-      if not tb:set_markup_silently(text) then
-        tb:set_markup('<i>&lt;Invalid text&gt;</i>')
-      end
+      tb:set_text(textOnly)
     end
     bgb:set_bg(bg)
     if type(bg_image) == 'function' then
