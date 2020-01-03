@@ -42,7 +42,7 @@ local function changesOnScreen(currentScreen)
     end
   end
 
-  if (tagIsMax or #clientsToManage == 1) then
+  if tagIsMax then --or #clientsToManage == 1) then
     currentScreen.client_mode = 'maximized'
   else
     currentScreen.client_mode = 'tiled'
