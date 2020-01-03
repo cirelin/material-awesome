@@ -26,6 +26,11 @@ awful.rules.rules = {
     }
   },
   {
+    -- For those programs that don't play nice in tiled mode
+    rule_any = {class = {'lxterminal', 'discord'}},
+    properties = {size_hints_honor = false}
+  },
+  {
     rule_any = {name = {'QuakeTerminal'}},
     properties = {skip_decoration = true}
   },
@@ -44,5 +49,26 @@ awful.rules.rules = {
       end,
       skip_decoration = true
     }
+  },
+  -- Force programs to be in certain tags
+  {
+    rule_any = {instance = {'Opera'}},
+    properties = {tag = '1'}
+  },
+  {
+    rule_any = {instance = {'nemo'}},
+    properties = {tag = '3'}
+  },
+  {
+    rule_any = {instance = {'discord', 'mailspring'}},
+    properties = {tag = '4'}
+  },
+  {
+    rule_any = {instance = {'Steam'}},
+    properties = {tag = '5'}
+  },
+  {
+    rule_any = {instance = {'[Ss]potify'}},
+    properties = {tag = '6'}
   }
 }
