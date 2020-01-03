@@ -6,25 +6,21 @@ local gears = require('gears')
 local clickable_container = require('widget.material.clickable-container')
 local mat_icon_button = require('widget.material.icon-button')
 local mat_icon = require('widget.material.icon')
+local calendar_widget = require("widget.calendar-widget.calendar")
 
 local dpi = require('beautiful').xresources.apply_dpi
 
 local icons = require('theme.icons')
 
--- Clock / Calendar 24h format
-local textclock = wibox.widget.textclock('<span font="Roboto Mono bold 9">%d.%m.%Y\n     %H:%M</span>')
+-- Clock 12h format
+local textclock = wibox.widget.textclock('<span font="Roboto Mono bold 9">%d.%m.%Y\n%-I:%M %p</span>')
+-- Clock 24h format
+--local textclock = wibox.widget.textclock('<span font="Roboto Mono bold 9">%d.%m.%Y\n%H:%M</span>')
 
--- Clock / Calendar 12AM/PM fornat
--- local textclock = wibox.widget.textclock('<span font="Roboto Mono bold 9">%d.%m.%Y\n  %I:%M %p</span>\n<span font="Roboto Mono bold 9">%p</span>')
--- textclock.forced_height = 56
-
--- Add a calendar (credits to kylekewley for the original code)
-local month_calendar = awful.widget.calendar_popup.month({
-  screen = s,
-  start_sunday = false,
-  week_numbers = true
-})
-month_calendar:attach(textclock)
+textclock:connect_signal("button::press",
+  function(_, _, _, button)
+    if button == 1 then calendar_widget.toggle() end
+  end)
 
 local clock_widget = wibox.container.margin(textclock, dpi(13), dpi(13), dpi(8), dpi(8))
 
