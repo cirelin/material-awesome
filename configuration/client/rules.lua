@@ -37,7 +37,7 @@ awful.rules.rules = {
   },
   -- Titlebars
   {
-    rule_any = {type = {'dialog'}, class = {'Nm-connection-editor', 'Ibus-setup'}},
+    rule_any = {type = {'dialog'}, class = {'Nm-connection-editor', 'Ibus-setup', 'Pavucontrol'}},
     properties = {
       placement = awful.placement.centered,
       ontop = true,

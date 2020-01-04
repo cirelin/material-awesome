@@ -1,3 +1,5 @@
+local gears = require('gears')
+local awful = require('awful')
 local wibox = require('wibox')
 local mat_list_item = require('widget.material.list-item')
 local mat_slider = require('widget.material.slider')
@@ -5,6 +7,7 @@ local mat_icon_button = require('widget.material.icon-button')
 local icons = require('theme.icons')
 local watch = require('awful.widget.watch')
 local spawn = require('awful.spawn')
+local muted = false
 
 local slider =
   wibox.widget {
@@ -15,7 +18,9 @@ local slider =
 slider:connect_signal(
   'property::value',
   function()
-    spawn('amixer -D pulse sset Master ' .. slider.value .. '%')
+    if not muted then
+      spawn('amixer -D pulse sset Master ' .. slider.value .. '%')
+    end
   end
 )
 
@@ -25,7 +30,13 @@ watch(
   function(_, stdout)
     local mute = string.match(stdout, '%[(o%D%D?)%]')
     local volume = string.match(stdout, '(%d?%d?%d)%%')
-    slider:set_value(tonumber(volume))
+    if mute == 'on' then
+      muted = false
+      slider:set_value(tonumber(volume))
+    else
+      muted = true
+      slider:set_value(0)
+    end
     collectgarbage('collect')
   end
 )
@@ -37,6 +48,19 @@ local icon =
 }
 
 local button = mat_icon_button(icon)
+
+button:buttons(
+  gears.table.join(
+    awful.button(
+      {},
+      1,
+      nil,
+      function()
+        spawn('amixer -D pulse set Master 1+ toggle')
+      end
+    )
+  )
+)
 
 local volume_setting =
   wibox.widget {
