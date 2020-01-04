@@ -13,6 +13,7 @@ local beautiful = require("beautiful")
 local wibox = require("wibox")
 local gears = require("gears")
 local naughty = require("naughty")
+local dpi = require('beautiful').xresources.apply_dpi
 
 local calendar_widget = {}
 
@@ -93,9 +94,9 @@ local function worker(args)
     end
 
     styles.month = {
-        padding = 4,
+        padding = dpi(4),
         bg_color = calendar_themes[theme].bg,
-        border_width = 0,
+        border_width = dpi(3),
     }
 
     styles.normal = {
@@ -178,8 +179,8 @@ local function worker(args)
         visible = false,
         shape = gears.shape.rounded_rect,
         offset = { y = 5 },
-        border_width = 1,
-        border_color = calendar_themes[theme].border,
+        border_width = beautiful.border_width,
+        border_color = beautiful.border_focus, --calendar_themes[theme].border,
         widget = cal
     }
 
@@ -213,13 +214,13 @@ local function worker(args)
             popup.visible = not popup.visible
         else
             if placement == 'top' then
-                awful.placement.top(popup, { margins = { top = 60 }, parent = awful.screen.focused() })
+                awful.placement.top(popup, { margins = { top = 50 }, parent = awful.screen.focused() })
             elseif placement == 'top_right' then
-                awful.placement.top_right(popup, { margins = { top = 60, right = 10}, parent = awful.screen.focused() })
+                awful.placement.top_right(popup, { margins = { top = 50, right = 10}, parent = awful.screen.focused() })
             elseif placement == 'bottom_right' then
-                awful.placement.bottom_right(popup, { margins = { bottom = 30, right = 10}, parent = awful.screen.focused() })
+                awful.placement.bottom_right(popup, { margins = { bottom = 20, right = 10}, parent = awful.screen.focused() })
             else
-                awful.placement.top(popup, { margins = { top = 60 }, parent = awful.screen.focused() })
+                awful.placement.top(popup, { margins = { top = 50 }, parent = awful.screen.focused() })
             end
 
             popup.visible = true
