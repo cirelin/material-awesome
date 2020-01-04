@@ -8,7 +8,6 @@ theme.icons = theme_dir .. '/icons/'
 theme.font = 'Roboto medium 10'
 
 theme.icon_theme = 'Papirus-Dark'
-theme.calendar_placement = 'top_right'
 theme.systray_icon_spacing = 0
 theme.wallpaper = theme_dir .. '/wallpapers/1920x1080.svg'
 

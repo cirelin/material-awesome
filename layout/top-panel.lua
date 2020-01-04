@@ -16,10 +16,12 @@ local icons = require('theme.icons')
 local textclock = wibox.widget.textclock('<span font="Roboto Mono bold 9">%d.%m.%Y\n%-I:%M %p</span>')
 -- Clock 24h format
 --local textclock = wibox.widget.textclock('<span font="Roboto Mono bold 9">%d.%m.%Y\n%H:%M</span>')
-
+local cw = calendar_widget({
+  placement = 'top_right'
+})
 textclock:connect_signal("button::press",
   function(_, _, _, button)
-    if button == 1 then calendar_widget.toggle() end
+    if button == 1 then cw.toggle() end
   end)
 
 local clock_widget = wibox.container.margin(textclock, dpi(13), dpi(13), dpi(8), dpi(8))
