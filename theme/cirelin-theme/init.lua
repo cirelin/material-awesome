@@ -15,6 +15,7 @@ theme.wallpaper = theme_dir .. '/wallpapers/1920x1080.svg'
 
 -- Primary
 theme.primary = '#417cb0'
+theme.calendar_fg = theme.primary
 
 -- Background
 theme.background = '#192933'

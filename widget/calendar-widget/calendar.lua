@@ -23,10 +23,10 @@ local function worker(args)
         nord = {
             bg = '#2E3440',
             fg = '#D8DEE9',
-            focus_date_bg = '#88C0D0',
+            focus_date_bg = beautiful.calendar_fg, --'#88C0D0',
             focus_date_fg = '#000000',
             weekend_day_bg = '#3B4252',
-            weekday_fg = '#88C0D0',
+            weekday_fg = beautiful.calendar_fg, --'#88C0D0',
             header_fg = '#E5E9F0',
             border = '#4C566A'
         },
@@ -96,7 +96,7 @@ local function worker(args)
     styles.month = {
         padding = dpi(4),
         bg_color = calendar_themes[theme].bg,
-        border_width = dpi(3),
+        border_width = dpi(2),
     }
 
     styles.normal = {
@@ -216,9 +216,9 @@ local function worker(args)
             if placement == 'top' then
                 awful.placement.top(popup, { margins = { top = 50 }, parent = awful.screen.focused() })
             elseif placement == 'top_right' then
-                awful.placement.top_right(popup, { margins = { top = 50, right = 10}, parent = awful.screen.focused() })
+                awful.placement.top_right(popup, { margins = { top = 50, right = 2}, parent = awful.screen.focused() })
             elseif placement == 'bottom_right' then
-                awful.placement.bottom_right(popup, { margins = { bottom = 20, right = 10}, parent = awful.screen.focused() })
+                awful.placement.bottom_right(popup, { margins = { bottom = 20, right = 2}, parent = awful.screen.focused() })
             else
                 awful.placement.top(popup, { margins = { top = 50 }, parent = awful.screen.focused() })
             end
