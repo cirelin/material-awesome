@@ -14,7 +14,7 @@ theme.wallpaper = theme_dir .. '/wallpapers/1920x1080.svg'
 -- Colors Pallets
 
 -- Primary
-theme.primary = '#7094b9'
+theme.primary = '#417cb0'
 
 -- Background
 theme.background = '#192933'

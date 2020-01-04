@@ -37,7 +37,7 @@ local awesome_overrides =
   theme.bg_systray = theme.background
 
   -- Borders
-  theme.border_width = dpi(3)
+  theme.border_width = dpi(2)
   theme.border_normal = theme.background_alt
   theme.border_focus = theme.primary
   theme.border_marked = '#CC9393'
