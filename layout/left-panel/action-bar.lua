@@ -11,7 +11,7 @@ local clickable_container = require('widget.material.clickable-container')
 return function(screen, panel, action_bar_width)
   local systray = wibox.widget.systray()
   systray:set_horizontal(false)
-  systray:set_base_size(24)
+  systray:set_base_size(dpi(24))
 
   local menu_icon =
     wibox.widget {
