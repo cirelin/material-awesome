@@ -9,6 +9,14 @@ local watch = require('awful.widget.watch')
 local spawn = require('awful.spawn')
 local muted = false
 
+function toggle_mute()
+  spawn('amixer -D pulse set Master 1+ toggle')
+end
+
+function set_volume(value)
+  spawn('amixer -D pulse sset Master ' .. value .. '%')
+end
+
 local slider =
   wibox.widget {
   read_only = false,
@@ -19,14 +27,14 @@ slider:connect_signal(
   'property::value',
   function()
     if not muted then
-      spawn('amixer -D pulse sset Master ' .. slider.value .. '%')
+      set_volume(slider.value)
     end
   end
 )
 
 watch(
   [[bash -c "amixer -D pulse sget Master"]],
-  1,
+  0.1,
   function(_, stdout)
     local mute = string.match(stdout, '%[(o%D%D?)%]')
     local volume = string.match(stdout, '(%d?%d?%d)%%')
@@ -56,7 +64,7 @@ button:buttons(
       1,
       nil,
       function()
-        spawn('amixer -D pulse set Master 1+ toggle')
+        toggle_mute()
       end
     )
   )
