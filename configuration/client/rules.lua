@@ -28,7 +28,7 @@ awful.rules.rules = {
   },
   {
     -- For those programs that don't play nice in tiled mode
-    rule_any = {class = {'lxterminal', 'discord'}},
+    rule_any = {class = {'Lxterminal', 'discord'}},
     properties = {size_hints_honor = false}
   },
   {
