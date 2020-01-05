@@ -28,7 +28,7 @@ awful.rules.rules = {
   },
   {
     -- For those programs that don't play nice in tiled mode
-    rule_any = {class = {'Lxterminal', 'discord'}},
+    rule_any = {class = {'Lxterminal', 'discord', 'Mailspring'}},
     properties = {size_hints_honor = false}
   },
   {
@@ -39,7 +39,7 @@ awful.rules.rules = {
   {
     rule_any = {
       type = {'dialog'},
-      instance = {'file_progress'},
+      instance = {'file_progress'}, -- For nemo
       class = {'Nm-connection-editor', 'Ibus-setup', 'Pavucontrol'}
     },
     properties = {

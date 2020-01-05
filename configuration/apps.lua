@@ -23,7 +23,7 @@ return {
     editor = 'code',
     text = 'mousepad', -- GUI text editor
     social = 'mailspring',
-    game = 'steam-client',
+    game = 'steam',
     files = 'nemo',
     music = 'spotify',
     other = rofi_command
@@ -39,8 +39,8 @@ return {
     -- KDE  '/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
     -- MATE '/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
     'flameshot', -- Area select screenshot tool
-    --'steam -silent', -- Start steam in background
-    --'discord --start-minimized', -- Start discord in background
+    'steam -silent', -- Start steam in background
+    'discord --start-minimized', -- Start discord in background
     'mailspring --background', -- Email client
     'xfce4-power-manager', -- Power manager
 
