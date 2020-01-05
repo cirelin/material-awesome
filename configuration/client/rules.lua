@@ -37,7 +37,11 @@ awful.rules.rules = {
   },
   -- Titlebars
   {
-    rule_any = {type = {'dialog'}, class = {'Nm-connection-editor', 'Ibus-setup', 'Pavucontrol'}},
+    rule_any = {
+      type = {'dialog'},
+      instance = {'file_progress'},
+      class = {'Nm-connection-editor', 'Ibus-setup', 'Pavucontrol'}
+    },
     properties = {
       placement = awful.placement.centered,
       ontop = true,
@@ -70,7 +74,7 @@ awful.rules.rules = {
     properties = {tag = '5'}
   },
   {
-    rule_any = {instance = {'[Ss]potify'}},
+    rule_any = {instance = {'spotify'}},
     properties = {tag = '6'}
   }
 }
