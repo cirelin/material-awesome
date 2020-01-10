@@ -40,7 +40,8 @@ awful.rules.rules = {
     rule_any = {
       type = {'dialog'},
       instance = {'file_progress'}, -- For nemo
-      class = {'Nm-connection-editor', 'Ibus-setup', 'Pavucontrol'}
+      class = {'Nm-connection-editor', 'Ibus-setup', 'Pavucontrol'},
+      name = {'Picture in Picture'}
     },
     properties = {
       placement = awful.placement.centered,
