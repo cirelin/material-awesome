@@ -35,13 +35,28 @@ awful.rules.rules = {
     rule_any = {name = {'QuakeTerminal'}},
     properties = {skip_decoration = true}
   },
+  -- Opera's picture in picture
+  {
+    rule_any = {name = {'Picture in Picture'}},
+    properties = {
+      ontop = true,
+      floating = true,
+      drawBackdrop = true,
+      border_width = beautiful.border_width,
+      shape = function()
+        return function(cr, w, h)
+          gears.shape.rounded_rect(cr, w, h, 8)
+        end
+      end,
+      skip_decoration = true
+    }
+  },
   -- Titlebars
   {
     rule_any = {
       type = {'dialog'},
       instance = {'file_progress'}, -- For nemo
-      class = {'Nm-connection-editor', 'Ibus-setup', 'Pavucontrol'},
-      name = {'Picture in Picture'}
+      class = {'Nm-connection-editor', 'Ibus-setup', 'Pavucontrol'}
     },
     properties = {
       placement = awful.placement.centered,
@@ -59,7 +74,7 @@ awful.rules.rules = {
   },
   -- Force programs to be in certain tags
   {
-    rule_any = {instance = {'Opera'}},
+    rule_any = {instance = {'Vivaldi-stable'}},
     properties = {tag = '1'}
   },
   {

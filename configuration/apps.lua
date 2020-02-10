@@ -19,7 +19,7 @@ return {
     
     -- Editing these also edits the default program
     -- associated with each tag/workspace
-    browser = 'opera',
+    browser = 'vivaldi',
     editor = 'code',
     text = 'mousepad', -- GUI text editor
     social = 'mailspring',

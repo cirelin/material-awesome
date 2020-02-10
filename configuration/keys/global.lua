@@ -59,6 +59,22 @@ local globalKeys =
     {description = 'focus previous by index', group = 'client'}
   ),
   awful.key(
+    {modkey},
+    'Tab',
+    function()
+      awful.screen.focus_relative(1)
+    end,
+    {description = 'switch to next screen', group = 'client'}
+  ),
+  awful.key(
+    {modkey, 'Shift'},
+    'Tab',
+    function()
+      awful.screen.focus_relative(-1)
+    end,
+    {description = 'switch to previous screen', group = 'client'}
+  ),
+  awful.key(
     {altkey},
     'Tab',
     function()
